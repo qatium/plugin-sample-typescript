@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+    <!-- Run Conditions-->
+    <% if(isDev){ %>
+      <base href="http://localhost:8888">
+    <% } %>
+  <body>
+    <link rel="stylesheet" href="/src/style.css">
+    <h1>Number of closed TCV valves</h1>
+    <p id="valves">Loading...</p>
+    <button id="changeMap">Change map</button>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "sample-plugin-vanilla-ts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-ejs": "^1.7.0",
+    "vite-plugin-singlefile": "^1.0.0"
+  },
+  "dependencies": {
+    "@qatium/plugin": "0.0.3"
+  }
+}
