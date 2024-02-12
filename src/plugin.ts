@@ -17,13 +17,11 @@ export class MyPlugin implements PluginI {
       changeMapButton.addEventListener("click", this.changeMapListener);
     }
 
-    const assets = await sdk.network.getValves();
-    const closedValves = assets
-      .filter((a) => (
-        a.family === ValveFamilies.TCV &&
-        a.simulation &&
-        a.simulation.status === AssetStatus.CLOSED
-      ));
+    const closedValves = await sdk.network.getValves((a) => (
+      a.family === ValveFamilies.TCV &&
+      !!a.simulation &&
+      a.simulation.status === AssetStatus.CLOSED
+    ));
 
     const valveText = document.querySelector("#valves");
     if (!valveText) return;
