@@ -10,7 +10,7 @@ npm install
 npm run dev
 ```
 
-Open Qatium in development mode to see your changes. To do so, open Qatium and enter one of your networks. When it has finished loaded, enable developer mode by adding `?developerMode=true` to the network URL, like the following:
+Open Qatium in development mode to see your changes. To do so, open Qatium and enter one of your networks. When it has finished loading, enable developer mode by adding `?developerMode=true` to the network URL, like the following:
 
 From
 ```
