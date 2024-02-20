@@ -4,6 +4,9 @@ import { ViteEjsPlugin } from "vite-plugin-ejs";
 
 export default defineConfig(() => {
   return {
+    build: {
+      emptyOutDir: false
+    },
     plugins: [viteSingleFile(), ViteEjsPlugin(), {
       name: "configure-response-headers",
       configureServer: server => {

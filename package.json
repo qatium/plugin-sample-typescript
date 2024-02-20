@@ -3,15 +3,24 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite"
+    "vite:ui": "vite --config vite.config.ui.ts",
+    "vite:plugin": "vite --config vite.config.plugin.ts build",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:ui": "npm run vite:ui",
+    "dev:plugin": "npm run vite:plugin -- --watch",
+    "build": "rimraf dist && npm run build:plugin && npm run build:ui",
+    "build:ui": "tsc --project tsconfig.ui.json && rm -f public/plugin.js && npm run vite:ui -- build",
+    "build:plugin": "tsc --project tsconfig.plugin.json && npm run vite:plugin -- --outDir dist"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-ejs": "^1.7.0",
     "vite-plugin-singlefile": "^1.0.0"
   },
   "dependencies": {
-    "@qatium/plugin": "0.0.4"
+    "@qatium/plugin": "0.0.9"
   }
 }
