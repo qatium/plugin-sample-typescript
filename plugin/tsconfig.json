@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES6",
     "lib": [
@@ -7,6 +7,6 @@
     ]
   },
   "include": [
-    "plugin"
+    "./"
   ]
 }
