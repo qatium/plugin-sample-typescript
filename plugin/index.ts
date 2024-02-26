@@ -1,10 +1,6 @@
-import { AssetStatus, OverlayLayer, PluginI, SDK, ValveFamilies } from "@qatium/plugin";
+import { AssetStatus, OverlayLayer, PluginI, SDK, ValveFamilies } from "@qatium/plugin/engine";
 
-class Plugin implements PluginI {
-  onNetworkChanged() {
-    console.log("network changed");
-  }
-
+class Plugin implements PluginI<string> {
   run(sdk: SDK) {
     const hydrants = sdk.network.getJunctions((j) => j.group === 'hydrant');
 
@@ -27,11 +23,7 @@ class Plugin implements PluginI {
     )).length);
   }
 
-  onMessage(sdk: SDK, message: unknown) {
-    if (typeof message !== "string") {
-      return;
-    }
-
+  onMessage(sdk: SDK, message: string) {
     switch(message) {
       case "zoomMap":
         return sdk.map.fitTo(["Mandalay_P1"], { flightDuration: 2000 });

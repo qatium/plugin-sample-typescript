@@ -17,10 +17,9 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
-    "vite-plugin-ejs": "^1.7.0",
     "vite-plugin-singlefile": "^1.0.0"
   },
   "dependencies": {
-    "@qatium/plugin": "0.0.12"
+    "@qatium/plugin": "0.0.14"
   }
 }
