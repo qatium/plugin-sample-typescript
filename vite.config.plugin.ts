@@ -8,7 +8,7 @@ export default defineConfig(() => {
       lib: {
         entry: "./plugin/index.ts",
         name: "test",
-        fileName: "plugin",
+        fileName: "engine",
         formats: ["es"] as LibraryFormats[]
       }
     }

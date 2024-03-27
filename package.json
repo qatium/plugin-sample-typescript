@@ -9,7 +9,7 @@
     "dev:ui": "npm run vite:ui",
     "dev:plugin": "npm run vite:plugin -- --watch",
     "build": "rimraf dist && npm run build:plugin && npm run build:ui",
-    "build:ui": "tsc --project ui/tsconfig.json && rm -f public/plugin.js && npm run vite:ui -- build",
+    "build:ui": "tsc --project ui/tsconfig.json && rm -f public/engine.js && npm run vite:ui -- build",
     "build:plugin": "tsc --project plugin/tsconfig.json && npm run vite:plugin -- --outDir dist"
   },
   "devDependencies": {

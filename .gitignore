@@ -133,4 +133,5 @@ package-lock.json
 .DS_store
 
 public/plugin.js
+public/engine.js
 .vscode
