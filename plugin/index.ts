@@ -1,4 +1,4 @@
-import { AssetStatus, OverlayLayer, PluginI, SDK, ValveFamilies } from "@qatium/plugin/engine";
+import { AssetStatus, OverlayLayer, PluginI, SDK, ValveFamilies, registerPlugin } from "@qatium/plugin/engine";
 
 class Plugin implements PluginI<string> {
   run(sdk: SDK) {
@@ -33,4 +33,4 @@ class Plugin implements PluginI<string> {
   }
 }
 
-register(new Plugin());
+registerPlugin(new Plugin());
