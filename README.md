@@ -15,6 +15,4 @@ Open Qatium in developer mode to see your changes, to do so:
 - Open a network and wait for it to load
 - Open your user menu clicking in your avatar, then open the developer mode settings and click the “Activate” toggle
 
-<center><img src="https://developer.qatium.app/_astro/enable-dev-mode.QjgTPglr_1nuSpW.webp" alt="Qatium developer mode toggle screenshot" width="600"></center>
-
 You should see your new plugin in the right side panel.
