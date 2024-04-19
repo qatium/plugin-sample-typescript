@@ -16,3 +16,8 @@ Open Qatium in developer mode to see your changes, to do so:
 - Open your user menu clicking in your avatar, then open the developer mode settings and click the “Activate” toggle
 
 You should see your new plugin in the right side panel.
+
+
+## Running tests
+
+Tests are written using @qatium/sdk-testing-library. You can run the tests using `npm run test` command. A test example is in the `plugin/engine.test.ts` file.
