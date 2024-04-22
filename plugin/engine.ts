@@ -1,8 +1,15 @@
 import { AssetStatus, OverlayLayer, PluginI, SDK, ValveFamilies } from "@qatium/plugin/engine";
 
-export class Engine implements PluginI<{ command: string; data: number }> {
+
+type Message = { command: string; data: number }
+
+export class Engine implements PluginI<Message> {
   run(sdk: SDK) {
-    const closedValves = sdk.network.getValves((valve) => valve.simulation?.status === "CLOSED");
+    const closedValves = sdk.network.getValves((a) => (
+      a.family === ValveFamilies.TCV &&
+      !!a.simulation &&
+      a.simulation.status === AssetStatus.CLOSED
+    ));
 
     sdk.map.addOverlay([
       {
@@ -20,11 +27,7 @@ export class Engine implements PluginI<{ command: string; data: number }> {
       } as OverlayLayer<"HeatmapLayer">
     ]);
 
-    sdk.ui.sendMessage(sdk.network.getValves((a) => (
-      a.family === ValveFamilies.TCV &&
-      !!a.simulation &&
-      a.simulation.status === AssetStatus.CLOSED
-    )).length);
+    sdk.ui.sendMessage(closedValves.length);
   }
 
   private closeValves(sdk: SDK, quantity: number) {
@@ -36,7 +39,7 @@ export class Engine implements PluginI<{ command: string; data: number }> {
       });
   }
 
-  onMessage(sdk: SDK, message: { command: string; data: number }) {
+  onMessage(sdk: SDK, message: Message) {
     switch (message.command) {
       case "closeValves":
         return this.closeValves(sdk, message.data)
