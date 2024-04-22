@@ -1,6 +1,6 @@
 import { sendMessage, onMessage } from '@qatium/plugin/ui'
 
-const changeMapButton = document.querySelector("#changeMap") as HTMLButtonElement;
+const changeMapButton = document.querySelector("#close-valves") as HTMLButtonElement;
 changeMapButton?.addEventListener("click", () => {
   sendMessage({ command: "closeValves", data: 10 })
 });
