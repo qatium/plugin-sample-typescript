@@ -1,7 +1,5 @@
 import {
   aJunction,
-  aPipe,
-  aPump,
   aSupplySource,
   aTank,
   aValve,
@@ -15,44 +13,26 @@ describe("engine", () => {
     aSupplySource({
       id: "S1"
     }),
-    aPump({
-      id: "Pu1",
-      connections: ["S1", "T1"]
-    }),
-    aTank({
-      id: "T1"
-    }),
-    aPipe({
-      id: "P1_1",
-      connections: ["T1", "V2"]
-    }),
     aValve({
-      id: "V2",
-      connections: ["P1_1", "P1_2"],
+      id: "V1",
+      connections: ["S1", "T1"],
       simulation: {
         status: "OPEN"
       }
     }),
-    aPipe({
-      id: "P1_2",
-      connections: ["V2", "J1"]
-    }),
-    aJunction({
-      id: "J1",
-      group: "hydrant",
-      simulation: {}
-    }),
-    aPipe({
-      id: "P2",
-      connections: ["J1", "V1"]
+    aTank({
+      id: "T1"
     }),
     aValve({
-      id: "V1",
-      connections: ["P2"],
+      id: "V2",
+      connections: ["T1", "J1"],
       simulation: {
         status: "CLOSED"
       }
-    })
+    }),
+    aJunction({
+      id: "J1"
+    }),
   ];
 
   it("add heatmap layer on run", () => {
@@ -83,8 +63,8 @@ describe("engine", () => {
     pluginEngine.onMessage(sdk, { command: "closeValves", data: 1 });
 
     expect(sdk.network.setStatus).toHaveBeenCalledTimes(1);
-    expect(sdk.network.setStatus).toHaveBeenCalledWith("V2", "CLOSED");
+    expect(sdk.network.setStatus).toHaveBeenCalledWith("V1", "CLOSED");
 
-    expect((sdk.network.getAsset("V2") as Valve)?.simulation?.status).toEqual("CLOSED")
+    expect((sdk.network.getAsset("V1") as Valve)?.simulation?.status).toEqual("CLOSED")
   });
 });

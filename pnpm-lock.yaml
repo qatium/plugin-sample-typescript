@@ -6,16 +6,16 @@ settings:
 
 dependencies:
   '@qatium/plugin':
-    specifier: file:../app/libs/plugin/qatium-plugin-0.0.24.tgz
-    version: file:../app/libs/plugin/qatium-plugin-0.0.24.tgz(@qatium/sdk@0.0.14)
+    specifier: ^0.0.25
+    version: 0.0.25(@qatium/sdk@0.0.14)
+
+devDependencies:
   '@qatium/sdk':
     specifier: latest
     version: 0.0.14(@deck.gl/extensions@8.9.35)(@loaders.gl/core@3.4.15)(@loaders.gl/gltf@3.4.15)(@loaders.gl/images@3.4.15)(@luma.gl/core@8.5.21)(@luma.gl/engine@8.5.21)(@luma.gl/gltools@8.5.21)(@luma.gl/shadertools@8.5.21)(@luma.gl/webgl@8.5.21)
-
-devDependencies:
   '@qatium/sdk-testing-library':
-    specifier: file:../app/libs/sdk-testing/qatium-sdk-testing-library-1.0.1.tgz
-    version: file:../app/libs/sdk-testing/qatium-sdk-testing-library-1.0.1.tgz(@qatium/sdk@0.0.14)(jest@29.7.0)
+    specifier: ^1.0.2
+    version: 1.0.2(@qatium/sdk@0.0.14)(jest@29.7.0)(typescript@5.4.5)
   '@types/jest':
     specifier: ^29.5.11
     version: 29.5.12
@@ -1316,6 +1316,29 @@ packages:
     resolution: {integrity: sha512-JdALQXB44OP4kUBN/UrQgzbJe4qokbVF4Y8lkIA8iVCFnjVowWIgkD/z/0QO65yELT54tTrtepw1jScjKB+rhQ==}
     dependencies:
       '@babel/runtime': 7.24.4
+
+  /@qatium/plugin@0.0.25(@qatium/sdk@0.0.14):
+    resolution: {integrity: sha512-GUEDGALqsZ+uTw2hh9bFJ5nOIfeLg2WV1BwvyWcus53YqC4x8vy6/EZhHN5BCrBWBAQHF/4WxrejETJ/ZxEcXQ==}
+    peerDependencies:
+      '@qatium/sdk': '*'
+    dependencies:
+      '@qatium/sdk': 0.0.14(@deck.gl/extensions@8.9.35)(@loaders.gl/core@3.4.15)(@loaders.gl/gltf@3.4.15)(@loaders.gl/images@3.4.15)(@luma.gl/core@8.5.21)(@luma.gl/engine@8.5.21)(@luma.gl/gltools@8.5.21)(@luma.gl/shadertools@8.5.21)(@luma.gl/webgl@8.5.21)
+    dev: false
+
+  /@qatium/sdk-testing-library@1.0.2(@qatium/sdk@0.0.14)(jest@29.7.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-EGEvlD58d8dO0HX/Ag91BQAWSB3DQCifv2YBjEIMd3M2gLuCeorAxMHV6h8gabQstQk6SqYDsUSbJWk2FwUwJQ==}
+    peerDependencies:
+      '@qatium/sdk': 0.0.14
+      jest: '>= 29.0.0 < 30.0.0'
+    dependencies:
+      '@dagrejs/graphlib': 2.2.2
+      '@qatium/sdk': 0.0.14(@deck.gl/extensions@8.9.35)(@loaders.gl/core@3.4.15)(@loaders.gl/gltf@3.4.15)(@loaders.gl/images@3.4.15)(@luma.gl/core@8.5.21)(@luma.gl/engine@8.5.21)(@luma.gl/gltools@8.5.21)(@luma.gl/shadertools@8.5.21)(@luma.gl/webgl@8.5.21)
+      epanet-js: 0.7.0
+      jest: 29.7.0(@types/node@20.12.7)(ts-node@10.9.2)
+      jest-mock-extended: 3.0.6(jest@29.7.0)(typescript@5.4.5)
+    transitivePeerDependencies:
+      - typescript
+    dev: true
 
   /@qatium/sdk@0.0.14(@deck.gl/extensions@8.9.35)(@loaders.gl/core@3.4.15)(@loaders.gl/gltf@3.4.15)(@loaders.gl/images@3.4.15)(@luma.gl/core@8.5.21)(@luma.gl/engine@8.5.21)(@luma.gl/gltools@8.5.21)(@luma.gl/shadertools@8.5.21)(@luma.gl/webgl@8.5.21):
     resolution: {integrity: sha512-kyX9wgFQ5C+n04dBgNc3K5Am1b1YFlpK2gfDcD7n8SKBftZieA1RHnjEqV3aipoUg31i//RCxTWooaTEslfmxA==}
@@ -2650,6 +2673,17 @@ packages:
       stack-utils: 2.0.6
     dev: true
 
+  /jest-mock-extended@3.0.6(jest@29.7.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-DJuEoFzio0loqdX8NIwkbE9dgIXNzaj//pefOQxGkoivohpxbSQeNHCAiXkDNA/fmM4EIJDoZnSibP4w3dUJ9g==}
+    peerDependencies:
+      jest: ^24.0.0 || ^25.0.0 || ^26.0.0 || ^27.0.0 || ^28.0.0 || ^29.0.0
+      typescript: ^3.0.0 || ^4.0.0 || ^5.0.0
+    dependencies:
+      jest: 29.7.0(@types/node@20.12.7)(ts-node@10.9.2)
+      ts-essentials: 9.4.2(typescript@5.4.5)
+      typescript: 5.4.5
+    dev: true
+
   /jest-mock@29.7.0:
     resolution: {integrity: sha512-ITOMZn+UkYS4ZFh83xYAOzWStloNzJFO2s8DWrE4lhtGD+AorgnbkiKERe4wQVBydIGPx059g6riW5Btp6Llnw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -3491,6 +3525,17 @@ packages:
     hasBin: true
     dev: true
 
+  /ts-essentials@9.4.2(typescript@5.4.5):
+    resolution: {integrity: sha512-mB/cDhOvD7pg3YCLk2rOtejHjjdSi9in/IBYE13S+8WA5FBSraYf4V/ws55uvs0IvQ/l0wBOlXy5yBNZ9Bl8ZQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 5.4.5
+    dev: true
+
   /ts-jest@29.1.2(@babel/core@7.24.4)(jest@29.7.0)(typescript@5.4.5):
     resolution: {integrity: sha512-br6GJoH/WUX4pu7FbZXuWGKGNDuU7b8Uj77g/Sp7puZV6EXzuByl6JrECvm0MzVzSTkSHWTihsXt+5XYER5b+g==}
     engines: {node: ^16.10.0 || ^18.0.0 || >=20.0.0}
@@ -3735,30 +3780,4 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: true
-
-  file:../app/libs/plugin/qatium-plugin-0.0.24.tgz(@qatium/sdk@0.0.14):
-    resolution: {integrity: sha512-uuo5irR8ZjL0z5QnGaEPRfSMU/xf63NZqEUoB1QClhbzwwl0GFJMWActaQL+bdVoALANLxTD1ClvVft8O6YYNA==, tarball: file:../app/libs/plugin/qatium-plugin-0.0.24.tgz}
-    id: file:../app/libs/plugin/qatium-plugin-0.0.24.tgz
-    name: '@qatium/plugin'
-    version: 0.0.24
-    peerDependencies:
-      '@qatium/sdk': '*'
-    dependencies:
-      '@qatium/sdk': 0.0.14(@deck.gl/extensions@8.9.35)(@loaders.gl/core@3.4.15)(@loaders.gl/gltf@3.4.15)(@loaders.gl/images@3.4.15)(@luma.gl/core@8.5.21)(@luma.gl/engine@8.5.21)(@luma.gl/gltools@8.5.21)(@luma.gl/shadertools@8.5.21)(@luma.gl/webgl@8.5.21)
-    dev: false
-
-  file:../app/libs/sdk-testing/qatium-sdk-testing-library-1.0.1.tgz(@qatium/sdk@0.0.14)(jest@29.7.0):
-    resolution: {integrity: sha512-mrQLum7n5DnhvLZ8iLcJCsLr+3XaHexo9EuT9czTtHazj6FpavUW9D0hvqGVODLOhrBYucFU9nDhZf6t1SXw3Q==, tarball: file:../app/libs/sdk-testing/qatium-sdk-testing-library-1.0.1.tgz}
-    id: file:../app/libs/sdk-testing/qatium-sdk-testing-library-1.0.1.tgz
-    name: '@qatium/sdk-testing-library'
-    version: 1.0.1
-    peerDependencies:
-      '@qatium/sdk': '*'
-      jest: ^29.7.0
-    dependencies:
-      '@dagrejs/graphlib': 2.2.2
-      '@qatium/sdk': 0.0.14(@deck.gl/extensions@8.9.35)(@loaders.gl/core@3.4.15)(@loaders.gl/gltf@3.4.15)(@loaders.gl/images@3.4.15)(@luma.gl/core@8.5.21)(@luma.gl/engine@8.5.21)(@luma.gl/gltools@8.5.21)(@luma.gl/shadertools@8.5.21)(@luma.gl/webgl@8.5.21)
-      epanet-js: 0.7.0
-      jest: 29.7.0(@types/node@20.12.7)(ts-node@10.9.2)
     dev: true
