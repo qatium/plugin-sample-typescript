@@ -1,6 +1,5 @@
 import { AssetStatus, OverlayLayer, PluginI, SDK, ValveFamilies } from "@qatium/plugin/engine";
 
-
 type Message = { command: string; data: number }
 
 export class Engine implements PluginI<Message> {
