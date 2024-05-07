@@ -1,12 +1,12 @@
-import { defineConfig, LibraryFormats } from "vite"
+import { defineConfig, LibraryFormats } from "vite";
 
 export default defineConfig(() => {
   return {
     build: {
       emptyOutDir: false,
-      outDir: "public",
+      outDir: "./src/public",
       lib: {
-        entry: "./plugin/index.ts",
+        entry: "./src/engine/index.ts",
         name: "test",
         fileName: "engine",
         formats: ["es"] as LibraryFormats[]

@@ -6,7 +6,7 @@ import {
   mockSDK
 } from "@qatium/sdk-testing-library"
 import { Engine } from "./engine"
-import { Valve } from '@qatium/sdk';
+import { Valve } from '@qatium/plugin/engine';
 
 describe("engine", () => {
   const buildNetwork = () => [

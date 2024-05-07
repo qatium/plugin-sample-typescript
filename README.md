@@ -20,4 +20,4 @@ You should see your new plugin in the right side panel.
 
 ## Running tests
 
-Tests are written using @qatium/sdk-testing-library. You can run the tests using `npm run test` command. A test example is in the `plugin/engine.test.ts` file.
+Tests are written using @qatium/sdk-testing-library. You can run the tests using `npm run test` command. A test example is in the `src/engine/engine.test.ts` file.
