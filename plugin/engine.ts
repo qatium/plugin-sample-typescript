@@ -1,4 +1,4 @@
-import { AssetStatus, OverlayLayer, PluginI, SDK, ValveFamilies } from "@qatium/plugin/engine";
+import { AssetStatus, PluginI, SDK, ValveFamilies } from "@qatium/plugin/engine";
 
 type Message = { command: string; data: number }
 
@@ -9,22 +9,6 @@ export class Engine implements PluginI<Message> {
       !!a.simulation &&
       a.simulation.status === AssetStatus.CLOSED
     ));
-
-    sdk.map.addOverlay([
-      {
-        type: 'HeatmapLayer',
-        id: 'density',
-        data: closedValves.map((valve) => ({
-          geometry: valve.geometry,
-          properties: {},
-          type: 'Feature'
-        })),
-        opacity: 0.5,
-        visible: true,
-        getPosition: (j) => j.geometry.coordinates,
-        radiusPixels: 25
-      } as OverlayLayer<"HeatmapLayer">
-    ]);
 
     sdk.ui.sendMessage(closedValves.length);
   }

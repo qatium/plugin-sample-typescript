@@ -3,6 +3,7 @@
 html * {
     font-family: 'Exo 2', "Source Sans Pro", sans-serif;
     overflow: hidden;
+    margin: 8px;
 }
 
 body {
@@ -23,6 +24,7 @@ button {
     border-radius: 4px;
     height: 2em;
     margin: 4px;
+    margin-bottom: 32px;
 }
 
 button:hover {

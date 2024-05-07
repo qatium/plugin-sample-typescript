@@ -35,27 +35,6 @@ describe("engine", () => {
     }),
   ];
 
-  it("add heatmap layer on run", () => {
-    const sdk = mockSDK({ network: buildNetwork() })
-    const pluginEngine = new Engine();
-
-    pluginEngine.run(sdk);
-
-    expect(sdk.map.addOverlay).toHaveBeenCalledWith([
-      expect.objectContaining({
-        data: [{
-          "geometry": {
-            "coordinates": [0, 0],
-            "type": "Point"
-          },
-          "properties": {},
-          "type": "Feature"
-        }],
-        type: "HeatmapLayer"
-      })
-    ])
-  });
-
   it("close valves on message", () => {
     const sdk = mockSDK({ network: buildNetwork() })
     const pluginEngine = new Engine();
