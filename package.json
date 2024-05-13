@@ -16,7 +16,7 @@
     "test:watch": "npm run test --watchAll -i --no-cache"
   },
   "devDependencies": {
-    "@qatium/sdk-testing-library": "^1.0.2",
+    "@qatium/sdk-testing-library": "latest",
     "@testing-library/jest-dom": "^6.4.5",
     "@types/jest": "^29.5.11",
     "concurrently": "^8.2.2",
