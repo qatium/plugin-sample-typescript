@@ -5,8 +5,8 @@ import {
   aValve,
   mockSDK
 } from "@qatium/sdk-testing-library"
-import { Engine } from "./engine"
-import { Valve } from '@qatium/plugin/engine';
+import { MyPlugin } from "./plugin"
+import { Valve } from '@qatium/plugin';
 
 describe("engine", () => {
   const buildNetwork = () => [
@@ -37,9 +37,10 @@ describe("engine", () => {
 
   it("close valves on message", () => {
     const sdk = mockSDK({ network: buildNetwork() })
-    const pluginEngine = new Engine();
+    global.sdk = sdk;
+    const pluginEngine = new MyPlugin();
 
-    pluginEngine.onMessage(sdk, { command: "closeValves", data: 1 });
+    pluginEngine.onMessage({ command: "closeValves", data: 1 });
 
     expect(sdk.network.setStatus).toHaveBeenCalledTimes(1);
     expect(sdk.network.setStatus).toHaveBeenCalledWith("V1", "CLOSED");

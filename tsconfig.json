@@ -5,11 +5,8 @@
     "esModuleInterop": true,
     "lib": [
       "ES6",
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
+      "ES2020"
     ],
-    "jsx": "react-jsx",
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */

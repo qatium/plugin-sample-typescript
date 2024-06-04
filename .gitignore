@@ -131,6 +131,5 @@ dist
 
 package-lock.json
 .DS_store
-
-src/public/engine.js
+metadata/*.js
 .vscode

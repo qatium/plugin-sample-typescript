@@ -3,7 +3,7 @@ import fs from 'fs'
 
 describe("ui", () => {
   const domParser = new DOMParser()
-  const html = fs.readFileSync("src/ui/index.html", "utf8")
+  const html = fs.readFileSync("src/panel/index.html", "utf8")
 
   beforeEach(() => {
     window.document.body = domParser.parseFromString(html, "text/html").body
@@ -11,7 +11,7 @@ describe("ui", () => {
 
   it("updates html on message received", async () => {
     window.dispatchEvent(new MessageEvent("message", {
-       data: { 
+       data: {
           source: "qatium",
           type: "message",
           payload: 5

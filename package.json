@@ -4,16 +4,11 @@
   "type": "module",
   "description": "Sample plugin for Qatium using typescript",
   "scripts": {
-    "vite:ui": "vite --config vite.config.ui.ts",
-    "vite:engine": "vite --config vite.config.engine.ts build",
-    "dev": "concurrently \"npm:dev:*\"",
-    "dev:ui": "npm run vite:ui",
-    "dev:engine": "npm run vite:engine -- --watch",
-    "build": "rimraf dist && npm run build:engine && npm run build:ui",
-    "build:ui": "tsc --project src/ui/tsconfig.json && rm -f src/public/engine.js && npm run vite:ui -- build",
-    "build:engine": "tsc --project src/engine/tsconfig.json && npm run vite:engine -- --outDir dist",
+    "clean": "rimraf dist src/public/plugin.js",
+    "dev": "tsx build.config.ts --dev",
+    "build": "tsc --project src/panel/tsconfig.json && tsc --project src/plugin/tsconfig.json && tsx build.config.ts",
     "test": "jest --verbose",
-    "test:watch": "npm run test --watchAll -i --no-cache"
+    "test:watch": "pnpm run test --watchAll -i --no-cache"
   },
   "devDependencies": {
     "@qatium/sdk-testing-library": "latest",
@@ -25,7 +20,7 @@
     "jest-watch-typeahead": "^2.2.2",
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.11.2",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-singlefile": "^1.0.0"

@@ -1,9 +1,9 @@
-import { AssetStatus, PluginI, SDK, ValveFamilies } from "@qatium/plugin/engine";
+import { AssetStatus, Plugin, ValveFamilies } from "@qatium/plugin";
 
 type Message = { command: string; data: number }
 
-export class Engine implements PluginI<Message> {
-  run(sdk: SDK) {
+export class MyPlugin implements Plugin {
+  run() {
     const closedValves = sdk.network.getValves((a) => (
       a.family === ValveFamilies.TCV &&
       !!a.simulation &&
@@ -13,7 +13,7 @@ export class Engine implements PluginI<Message> {
     sdk.ui.sendMessage(closedValves.length);
   }
 
-  private closeValves(sdk: SDK, quantity: number) {
+  private closeValves(quantity: number) {
     return sdk.network
       .getValves((valve) => valve.simulation?.status === "OPEN")
       .slice(0, quantity)
@@ -22,10 +22,10 @@ export class Engine implements PluginI<Message> {
       });
   }
 
-  onMessage(sdk: SDK, message: Message) {
+  onMessage(message: Message) {
     switch (message.command) {
       case "closeValves":
-        return this.closeValves(sdk, message.data)
+        return this.closeValves(message.data);
       default:
         return;
     }
