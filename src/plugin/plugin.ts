@@ -1,4 +1,5 @@
-import { AssetStatus, Plugin, ValveFamilies } from "@qatium/plugin";
+import { Plugin } from "@qatium/sdk/plugin";
+import { AssetStatus, ValveFamilies } from "@qatium/sdk";
 
 type Message = { command: string; data: number }
 
