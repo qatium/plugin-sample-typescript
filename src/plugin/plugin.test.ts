@@ -1,42 +1,44 @@
 import {
-  aJunction,
-  aSupplySource,
-  aTank,
-  aValve,
+  Network,
   mockSDK
 } from "@qatium/sdk-testing-library"
 import { MyPlugin } from "./plugin"
 import { Valve } from '@qatium/sdk';
 
 describe("engine", () => {
-  const buildNetwork = () => [
-    aSupplySource({
-      id: "S1"
-    }),
-    aValve({
+  const network: Network = [
+    {
+      id: "S1",
+      type: "Junction"
+    },
+    {
       id: "V1",
       connections: ["S1", "T1"],
       simulation: {
         status: "OPEN"
-      }
-    }),
-    aTank({
-      id: "T1"
-    }),
-    aValve({
+      },
+      type: "Valve"
+    },
+    {
+      id: "T1",
+      type: "Tank"
+    },
+    {
       id: "V2",
       connections: ["T1", "J1"],
       simulation: {
         status: "CLOSED"
-      }
-    }),
-    aJunction({
-      id: "J1"
-    }),
+      },
+      type: "Valve"
+    },
+    {
+      id: "J1",
+      type: "Junction"
+    },
   ];
 
   it("close valves on message", () => {
-    const sdk = mockSDK({ network: buildNetwork() })
+    const sdk = mockSDK({ network })
     global.sdk = sdk;
     const pluginEngine = new MyPlugin();
 
